@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ReactLolApi/static/css/main.146ac465.css",
+    "main.js": "/ReactLolApi/static/js/main.fd1eec83.js",
+    "static/js/787.28cb0dcd.chunk.js": "/ReactLolApi/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/ReactLolApi/index.html",
+    "main.146ac465.css.map": "/ReactLolApi/static/css/main.146ac465.css.map",
+    "main.fd1eec83.js.map": "/ReactLolApi/static/js/main.fd1eec83.js.map",
+    "787.28cb0dcd.chunk.js.map": "/ReactLolApi/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.146ac465.css",
+    "static/js/main.fd1eec83.js"
+  ]
+}
