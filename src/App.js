@@ -58,7 +58,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/summoner" element={<Summoner />} />
-          <Route path="/" element={<Home />} />
+          <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
         </Routes>
       </Router>
     </>
