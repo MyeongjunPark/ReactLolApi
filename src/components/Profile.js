@@ -82,7 +82,7 @@ const OverviewItem = styled.div`
 function Profile({ name, profileIconId, summonerLevel, tier, rank, leaguePoints, wins, losses, champName, champLevel, champPoints }) {
   const profileImgUrl = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${profileIconId}.jpg`;
 
-  const rankEmblemImg = `img/Emblem_${tier}.png`;
+  const rankEmblemImg = `${process.env.PUBLIC_URL}/img/Emblem_${tier}.png`;
   const masteryImg1 = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-profiles/global/default/mastery_level${champLevel[0]}.png`;
   const masteryImg2 = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-profiles/global/default/mastery_level${champLevel[1]}.png`;
   const masteryImg3 = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-profiles/global/default/mastery_level${champLevel[2]}.png`;
