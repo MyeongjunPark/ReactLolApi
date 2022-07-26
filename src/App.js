@@ -57,7 +57,7 @@ function App() {
       <GlobalStyle />
       <Router>
         <Routes>
-          <Route basename={process.env.PUBLIC_URL} path="/summoner" element={<Summoner />} />
+          <Route path="/summoner" element={<Summoner />} />
           <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
         </Routes>
       </Router>
