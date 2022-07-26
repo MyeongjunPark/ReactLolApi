@@ -53,7 +53,7 @@ function Home() {
     if (sumName == "") {
       alert("닉네임을 입력해주세요!");
     } else {
-      window.location.href = `/summoner?name=${sumName}`;
+      window.location.href = `${process.env.PUBLIC_URL}/summoner?name=${sumName}`;
     }
   };
   const enterClick = (e) => {
