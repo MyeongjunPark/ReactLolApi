@@ -28,7 +28,6 @@
       "react-app/jest"
     ]
   },
-  "proxy": "https://kr.api.riotgames.com",
   "browserslist": {
     "production": [
       ">0.2%",
