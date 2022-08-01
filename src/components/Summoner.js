@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import queryString from "query-string";
+
 import Profile from "./Profile";
+import { useParams } from "react-router-dom";
 
 function Summoner() {
   const [sumInfo, setSumInfo] = useState([]);
@@ -10,12 +11,12 @@ function Summoner() {
   const [champKey, setChampKey] = useState({});
   const [champName, setChampName] = useState({});
   const [loading, setLoading] = useState(true);
-  const queryName = queryString.parse(window.location.search);
+  const idParams = useParams();
 
   const getSummoner = async () => {
     const response = await axios({
       method: "get",
-      url: `/lol/summoner/v4/summoners/by-name/${queryName.name}`,
+      url: `/lol/summoner/v4/summoners/by-name/${idParams.id}`,
       //url: `/lol/summoner/v4/summoners/by-name/%EC%8B%A0%EC%9E%85%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C`,
       dataType: "json",
       headers: {

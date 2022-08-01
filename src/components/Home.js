@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { Link, useHistory } from "react-router-dom";
 
 const Wrap = styled.div`
   position: absolute;
@@ -40,6 +41,13 @@ const SearchBtn = styled.button`
   &:hover {
     background-color: #82c8d2;
   }
+  a {
+    display: block;
+    width: 380px;
+    height: 40px;
+    color: #000;
+    text-decoration: none;
+  }
 `;
 
 function Home() {
@@ -52,22 +60,25 @@ function Home() {
   const searchBtn = () => {
     if (sumName == "") {
       alert("닉네임을 입력해주세요!");
-    } else {
-      window.location.href = `${process.env.PUBLIC_URL}/summoner?name=${sumName}`;
     }
   };
   const enterClick = (e) => {
-    if (e.key == "Enter") {
+    if (e.code == "Enter") {
       searchBtn();
     }
   };
+
   return (
     <>
       <Wrap>
         <div>MY LOL PROFILE</div>
         <SearchInput placeholder="LOL 닉네임을 입력하세요." type="text" onChange={searchSummoner} onKeyPress={enterClick} />
         <br />
-        <SearchBtn onClick={searchBtn}>검색</SearchBtn>
+        <SearchBtn>
+          <Link onClick={searchBtn} to={`/summoner/${sumName}`}>
+            Search
+          </Link>
+        </SearchBtn>
       </Wrap>
     </>
   );

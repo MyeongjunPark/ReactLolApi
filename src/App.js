@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Summoner from "./components/Summoner";
 import { createGlobalStyle } from "styled-components";
@@ -55,12 +55,12 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Router>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
-          <Route path="/summoner" element={<Summoner />} />
-          <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
+          <Route path="/summoner/:id" element={<Summoner />} />
+          <Route path="/" element={<Home />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </>
   );
 }
