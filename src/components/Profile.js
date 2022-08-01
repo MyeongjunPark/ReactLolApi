@@ -113,7 +113,7 @@ function Profile({ name, profileIconId, summonerLevel, tier, rank, leaguePoints,
             </OverviewItem>
             <OverviewItem>{leaguePoints} pt</OverviewItem>
             <OverviewItem>
-              {wins}승 {losses}패
+              {wins}승 {losses}패 ({Math.round((wins / (wins + losses)) * 100)}%)
             </OverviewItem>
           </ProfileInfo>
         </ProfileView>

@@ -19,7 +19,7 @@ function Summoner() {
       //url: `/lol/summoner/v4/summoners/by-name/%EC%8B%A0%EC%9E%85%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C`,
       dataType: "json",
       headers: {
-        "X-Riot-Token": "RGAPI-de4c0118-0e76-4b9d-9349-8984396fa2f9",
+        "X-Riot-Token": "RGAPI-c7b8c0fc-2bbf-49b7-b743-6d8a9daed670",
       },
     });
     setSumInfo(response.data);
@@ -33,7 +33,7 @@ function Summoner() {
       url: `/lol/league/v4/entries/by-summoner/${id}`,
       dataType: "json",
       headers: {
-        "X-Riot-Token": "RGAPI-de4c0118-0e76-4b9d-9349-8984396fa2f9",
+        "X-Riot-Token": "RGAPI-c7b8c0fc-2bbf-49b7-b743-6d8a9daed670",
       },
     });
     setTier(tierResponse.data[0]);
@@ -45,7 +45,7 @@ function Summoner() {
       url: `/lol/champion-mastery/v4/champion-masteries/by-summoner/${id}`,
       dataType: "json",
       headers: {
-        "X-Riot-Token": "RGAPI-de4c0118-0e76-4b9d-9349-8984396fa2f9",
+        "X-Riot-Token": "RGAPI-c7b8c0fc-2bbf-49b7-b743-6d8a9daed670",
       },
     });
     setChampMastery(masteryResponse.data.slice(0, 3));
