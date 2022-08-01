@@ -17,7 +17,6 @@ function Summoner() {
     const response = await axios({
       method: "get",
       url: `/lol/summoner/v4/summoners/by-name/${idParams.id}`,
-      //url: `/lol/summoner/v4/summoners/by-name/%EC%8B%A0%EC%9E%85%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C`,
       dataType: "json",
       headers: {
         "X-Riot-Token": "RGAPI-c7b8c0fc-2bbf-49b7-b743-6d8a9daed670",
@@ -67,6 +66,8 @@ function Summoner() {
     let timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
+
+    console.log(idParams.id);
   }, []);
 
   useEffect(() => {
