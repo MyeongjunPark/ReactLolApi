@@ -18,11 +18,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && shx cp build/index.html build/404.html",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +43,5 @@
   "devDependencies": {
     "gh-pages": "^4.0.0",
     "shx": "^0.3.4"
-  },
-  "homepage": "https://myeongjunpark.github.io/ReactLolApi/"
+  }
 }
