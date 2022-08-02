@@ -42,7 +42,7 @@ function Summoner() {
   const getMastery = async (id) => {
     const masteryResponse = await axios({
       method: "get",
-      url: `https://cors-anywhere.herokuapp.com/https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${id}`,
+      url: `https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${id}`,
       dataType: "json",
       headers: {
         "X-Riot-Token": "RGAPI-c7b8c0fc-2bbf-49b7-b743-6d8a9daed670",
@@ -54,7 +54,7 @@ function Summoner() {
   const getChampion = async () => {
     const championResponse = await axios({
       method: "get",
-      url: `https://ddragon.leagueoflegends.com/cdn/12.13.1/data/ko_KR/champion.json`,
+      url: `https://cors-anywhere.herokuapp.com/https://ddragon.leagueoflegends.com/cdn/12.13.1/data/ko_KR/champion.json`,
       dataType: "json",
     });
     setChampKey(championResponse.data.data);
@@ -65,7 +65,7 @@ function Summoner() {
     getChampion();
     let timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 4000);
 
     console.log(idParams.id);
   }, []);
