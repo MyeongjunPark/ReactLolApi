@@ -52,7 +52,6 @@ const SearchBtn = styled.button`
 
 function Home() {
   const [sumName, setSumName] = useState("");
-
   const searchSummoner = (e) => {
     setSumName(e.target.value);
   };

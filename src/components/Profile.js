@@ -1,5 +1,7 @@
 import styled from "styled-components";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import champJson from "../json/champion.json";
 const Container = styled.div`
   width: 400px;
   margin: 0 auto;
@@ -79,9 +81,11 @@ const OverviewItem = styled.div`
   }
 `;
 
-function Profile({ name, profileIconId, summonerLevel, tier, rank, leaguePoints, wins, losses, champName, champLevel, champPoints }) {
-  const profileImgUrl = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${profileIconId}.jpg`;
+function Profile({ name, profileIconId, summonerLevel, tier, rank, leaguePoints, wins, losses, champLevel, champPoints, champId }) {
+  const [champKey, setChampKey] = useState({});
+  const [champName, setChampName] = useState([]);
 
+  const profileImgUrl = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${profileIconId}.jpg`;
   const rankEmblemImg = `${process.env.PUBLIC_URL}/img/Emblem_${tier}.png`;
   const masteryImg1 = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-profiles/global/default/mastery_level${champLevel[0]}.png`;
   const masteryImg2 = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-profiles/global/default/mastery_level${champLevel[1]}.png`;
@@ -90,66 +94,86 @@ function Profile({ name, profileIconId, summonerLevel, tier, rank, leaguePoints,
   const mostChamp2 = `https://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${champName[1]}.png`;
   const mostChamp3 = `https://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${champName[2]}.png`;
 
-  return (
-    <Container>
-      <Overview>
-        <ProfileView>
-          <OverviewItem>
-            <img src={profileImgUrl} alt="profileImg" />
-          </OverviewItem>
-          <ProfileInfo>
-            <div>{name}</div>
-            <div>{summonerLevel} Level</div>
-          </ProfileInfo>
-        </ProfileView>
+  const champNameArray = () => {
+    const championKeyDict = {};
 
-        <ProfileView>
-          <OverviewItem>
-            <img src={rankEmblemImg} alt="TierEmblemImage" />
-          </OverviewItem>
-          <ProfileInfo>
+    for (let key in champJson.data) {
+      let value = champJson.data[key];
+      championKeyDict[value.key] = value.id;
+    }
+    const champNameTrans = champId.map((data) => championKeyDict[data]);
+
+    setChampName(champNameTrans);
+  };
+  useEffect(() => {
+    champNameArray();
+  }, []);
+
+  return (
+    <>
+      <Container>
+        <Overview>
+          <ProfileView>
             <OverviewItem>
-              {tier} {rank}
+              <img src={profileImgUrl} alt="profileImg" />
             </OverviewItem>
-            <OverviewItem>{leaguePoints} pt</OverviewItem>
+            <ProfileInfo>
+              <div>{name}</div>
+              <div>{summonerLevel} Level</div>
+            </ProfileInfo>
+          </ProfileView>
+
+          <ProfileView>
             <OverviewItem>
-              {wins}승 {losses}패 ({Math.round((wins / (wins + losses)) * 100)}%)
+              <img src={rankEmblemImg} alt="TierEmblemImage" />
             </OverviewItem>
-          </ProfileInfo>
-        </ProfileView>
-        <ProfileView>
-          <MostView>
-            <ul>
-              <li>
-                <img src={masteryImg1} alt="masteryImg" />
-                <img src={mostChamp1} alt="champicon" />
-              </li>
-              <MostChampName>{champName[0]}</MostChampName>
-              <MostChampLevel>{champLevel[0]} Level</MostChampLevel>
-              <MostChampPoint>{champPoints[0]} Point</MostChampPoint>
-            </ul>
-            <ul>
-              <li>
-                <img src={masteryImg2} alt="masteryImg" />
-                <img src={mostChamp2} alt="champicon" />
-              </li>
-              <MostChampName>{champName[1]}</MostChampName>
-              <MostChampLevel>{champLevel[1]} Level</MostChampLevel>
-              <MostChampPoint>{champPoints[1]} Point</MostChampPoint>
-            </ul>
-            <ul>
-              <li>
-                <img src={masteryImg3} alt="masteryImg" />
-                <img src={mostChamp3} alt="champicon" />
-              </li>
-              <MostChampName>{champName[2]}</MostChampName>
-              <MostChampLevel>{champLevel[2]} Level</MostChampLevel>
-              <MostChampPoint>{champPoints[2]} Point</MostChampPoint>
-            </ul>
-          </MostView>
-        </ProfileView>
-      </Overview>
-    </Container>
+            <ProfileInfo>
+              <OverviewItem>
+                {tier} {rank}
+              </OverviewItem>
+              <OverviewItem>{leaguePoints} pt</OverviewItem>
+              <OverviewItem>
+                {wins}승 {losses}패 ({Math.round((wins / (wins + losses)) * 100)}%)
+              </OverviewItem>
+            </ProfileInfo>
+          </ProfileView>
+          <ProfileView>
+            <MostView>
+              <ul>
+                <li>
+                  <img src={masteryImg1} alt="masteryImg" />
+                  <img src={mostChamp1} alt="champicon" />
+                </li>
+                {/* <MostChampName>{champName[0]}</MostChampName> */}
+                <MostChampName>test</MostChampName>
+                <MostChampLevel>{champLevel[0]} Level</MostChampLevel>
+                <MostChampPoint>{champPoints[0]} Point</MostChampPoint>
+              </ul>
+              <ul>
+                <li>
+                  <img src={masteryImg2} alt="masteryImg" />
+                  <img src={mostChamp2} alt="champicon" />
+                </li>
+                {/* <MostChampName>{champName[1]}</MostChampName> */}
+                <MostChampName>test</MostChampName>
+                <MostChampLevel>{champLevel[1]} Level</MostChampLevel>
+                <MostChampPoint>{champPoints[1]} Point</MostChampPoint>
+              </ul>
+              <ul>
+                <li>
+                  <img src={masteryImg3} alt="masteryImg" />
+                  <img src={mostChamp3} alt="champicon" />
+                </li>
+                {/* <MostChampName>{champName[2]}</MostChampName> */}
+                <MostChampName>test</MostChampName>
+                <MostChampLevel>{champLevel[2]} Level</MostChampLevel>
+                <MostChampPoint>{champPoints[2]} Point</MostChampPoint>
+              </ul>
+            </MostView>
+          </ProfileView>
+        </Overview>
+      </Container>
+    </>
   );
 }
 
