@@ -45,6 +45,5 @@
   "devDependencies": {
     "gh-pages": "^4.0.0",
     "shx": "^0.3.4"
-  },
-  "homepage": "https://myeongjunpark.github.io/ReactLolApi/"
+  }
 }
