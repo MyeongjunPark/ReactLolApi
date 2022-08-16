@@ -53,16 +53,8 @@ function Summoner() {
 
   useEffect(() => {
     getSummoner();
-    // getChampion();
-
-    // let timer = setTimeout(() => {
-    //   setLoading(false);
-    // }, 3000);
   }, []);
 
-  // useEffect(() => {
-  //
-  // }, [champName]);
   const champLevel = champMastery.map((data) => data.championLevel);
   const champPoints = champMastery.map((data) => data.championPoints);
   const champId = champMastery.map((data) => data.championId);
