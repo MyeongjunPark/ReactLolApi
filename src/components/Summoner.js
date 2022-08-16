@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import Profile from "./Profile";
 import { useParams } from "react-router-dom";
-
+const Riot_Token = process.env.REACT_APP_API_KEY;
 function Summoner() {
   const [sumInfo, setSumInfo] = useState([]);
   const [tierInfo, setTier] = useState({});
@@ -18,7 +18,7 @@ function Summoner() {
       url: `https://mjooon-proxy.herokuapp.com/https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${idParams.id}`,
       dataType: "json",
       headers: {
-        "X-Riot-Token": "RGAPI-af2ce610-d084-42fa-9ade-6b58a5b2bcd1",
+        "X-Riot-Token": Riot_Token,
       },
     });
     setSumInfo(response.data);
@@ -32,7 +32,7 @@ function Summoner() {
       url: `https://mjooon-proxy.herokuapp.com/https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}`,
       dataType: "json",
       headers: {
-        "X-Riot-Token": "RGAPI-af2ce610-d084-42fa-9ade-6b58a5b2bcd1",
+        "X-Riot-Token": Riot_Token,
       },
     });
     setTier(tierResponse.data[0]);
@@ -44,7 +44,7 @@ function Summoner() {
       url: `https://mjooon-proxy.herokuapp.com/https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${id}`,
       dataType: "json",
       headers: {
-        "X-Riot-Token": "RGAPI-af2ce610-d084-42fa-9ade-6b58a5b2bcd1",
+        "X-Riot-Token": Riot_Token,
       },
     });
     setChampMastery(masteryResponse.data.slice(0, 3));
