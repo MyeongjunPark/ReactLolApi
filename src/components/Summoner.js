@@ -15,7 +15,7 @@ function Summoner() {
   const getSummoner = async () => {
     const response = await axios({
       method: "get",
-      url: `https://mjoon-proxy.herokuapp.com/https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${idParams.id}`,
+      url: `https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${idParams.id}`,
       dataType: "json",
       headers: {
         "X-Riot-Token": Riot_Token,
@@ -29,7 +29,7 @@ function Summoner() {
   const getTier = async (id) => {
     const tierResponse = await axios({
       method: "get",
-      url: `https://mjoon-proxy.herokuapp.com/https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}`,
+      url: `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}`,
       dataType: "json",
       headers: {
         "X-Riot-Token": Riot_Token,
@@ -41,7 +41,7 @@ function Summoner() {
   const getMastery = async (id) => {
     const masteryResponse = await axios({
       method: "get",
-      url: `https://mjoon-proxy.herokuapp.com/https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${id}`,
+      url: `https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${id}`,
       dataType: "json",
       headers: {
         "X-Riot-Token": Riot_Token,
