@@ -59,6 +59,8 @@ function Home() {
   const searchBtn = () => {
     if (sumName == "") {
       alert("닉네임을 입력해주세요!");
+    } else {
+      window.location.replace(`/summoner/${sumName}`);
     }
   };
   const enterClick = (e) => {
