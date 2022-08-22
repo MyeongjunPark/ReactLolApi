@@ -85,10 +85,10 @@ function Profile({ name, profileIconId, summonerLevel, tier, rank, leaguePoints,
   const [champName, setChampName] = useState([]);
   const profileImgUrl = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${profileIconId}.jpg`;
 
-  // let lowerStr = tier.toLowerCase();
-  // let newStr = lowerStr.replace(/^[a-z]/, (char) => char.toUpperCase());
+  let lowerStr = tier.toLowerCase();
+  let newStr = lowerStr.replace(/^[a-z]/, (char) => char.toUpperCase());
 
-  const rankEmblemImg = `/img/Emblem_${tier}.png`;
+  const rankEmblemImg = `${process.env.PUBLIC_URL}/img/Emblem_${newStr}.png`;
 
   const masteryImg1 = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-profiles/global/default/mastery_level${champLevel[0]}.png`;
   const masteryImg2 = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-profiles/global/default/mastery_level${champLevel[1]}.png`;
