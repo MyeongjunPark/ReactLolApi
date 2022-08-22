@@ -88,7 +88,7 @@ function Profile({ name, profileIconId, summonerLevel, tier, rank, leaguePoints,
   // let lowerStr = tier.toLowerCase();
   // let newStr = lowerStr.replace(/^[a-z]/, (char) => char.toUpperCase());
 
-  const rankEmblemImg = `${process.env.PUBLIC_URL}/img/Emblem_${tier}.png`;
+  const rankEmblemImg = `/img/Emblem_${tier}.png`;
 
   const masteryImg1 = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-profiles/global/default/mastery_level${champLevel[0]}.png`;
   const masteryImg2 = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-profiles/global/default/mastery_level${champLevel[1]}.png`;
